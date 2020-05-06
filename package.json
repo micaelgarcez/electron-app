@@ -1,0 +1,19 @@
+{
+  "name": "electron-app",
+  "version": "0.0.1",
+  "description": "learning by doing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micaelgarcez/electron-app.git"
+  },
+  "author": "Micael Garcez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micaelgarcez/electron-app/issues"
+  },
+  "homepage": "https://github.com/micaelgarcez/electron-app#readme"
+}
