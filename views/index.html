@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShoppingList</title>
+  </head>
+  <body>
+    <h1>ShoppingList</h1>
+    <ul></ul>
+
+    <script>
+        window.api.receive("fromMain", (data) => {
+          const ul = document.querySelector('ul');
+
+          const li = document.createElement('li');
+          const itemText = document.createTextNode(data);
+          li.appendChild(itemText);
+          ul.appendChild(li);
+        });
+    </script>
+</body>
+</html>
