@@ -7,6 +7,9 @@ const {
 const path = require("path");
 const fs = require("fs");
 
+// SET ENV
+process.env.NODE_ENV = 'production';
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 
@@ -89,7 +92,10 @@ const mainMenuTemplate = [
         }
       },
       {
-        label: 'Limpar Items' 
+        label: 'Limpar Items',
+        click(){
+          mainWindow.webContents.send("clearList", null);
+        }
       },
       {
         label: 'Sair',

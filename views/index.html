@@ -2,20 +2,44 @@
 <html>
   <head>
     <title>ShoppingList</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
   <body>
-    <h1>ShoppingList</h1>
+    <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo center">ShoppingList</a>
+      </div>
+    </nav>
     <ul></ul>
 
     <script>
-        window.api.receive("fromMain", (data) => {
-          const ul = document.querySelector('ul');
+      const ul = document.querySelector('ul');
 
+        // Add Item
+        window.api.receive("fromMain", (data) => {
+          ul.className = 'collection';
           const li = document.createElement('li');
+          li.className = 'collection-item';
           const itemText = document.createTextNode(data);
           li.appendChild(itemText);
           ul.appendChild(li);
         });
+
+        // Clear List
+        window.api.clearList("clearList", () => {
+          ul.innerHTML = '';
+          ul.className = '';
+        })
+
+        // Remove item
+        ul.addEventListener('dblclick', removeItem);
+
+        function removeItem(e){
+          e.target.remove();
+          if(ul.children.length == 0){
+            ul.className = '';
+          }
+        }
     </script>
 </body>
 </html>
